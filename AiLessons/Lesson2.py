@@ -28,9 +28,9 @@ Z = [
 I = [
     [], # Skip player 0 (doesn't exist)
     [[]], # Player 1 (no information set; root)
-    [   #Player 2
-        [["Study", "A"], ["party", "pass"]], #Look the same to user two
-        [["Study", "B"], ["party", "fail"]]
+    [   # Player 2
+        [["study", "A"], ["party", "pass"]], #Look the same to Player 2
+        [["study", "B"], ["party", "fail"]]
     ] 
 ]
         
