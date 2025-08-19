@@ -1,13 +1,29 @@
 from card import Card
+from random import shuffle
 
-class Deck:
+class Deck(Card):
     def __init__(self):
-        self.deck = Card._card_format.keys()
-        print(self.deck)
+        tups = list(Card._card_format.keys())
+        self.deck = list(Card(t[0], t[1]) for t in tups)
 
     def shuffle(self):
-        pass
+        if len(self.deck) != 52:
+            print("ERROR: deck not shuffled. Only shuffle complete deck.")
+            return
+        shuffle(self.deck)
 
+    def popCard(self):
+        if len(self.deck) <= 0:
+            print("DECK IS EMPTY!\n")
+            return None
+        return self.deck.pop()
+    
+    def __str__(self):
+        cards = [f"{card}" for card in self.deck]
+        return f'Deck ({len(cards)})\n---------\n{cards}'
+    
 if __name__ == "__main__":
-    c = Card()
     d = Deck()
+    d.shuffle()
+    print(d)
+
